@@ -1,0 +1,15 @@
+{
+  "name": "nativa-print-server",
+  "version": "1.0.0",
+  "description": "ESC/POS print server for Nativa Menu",
+  "main": "printServer.js",
+  "scripts": {
+    "start": "node printServer.js",
+    "dev": "node printServer.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-thermal-printer": "^4.4.0",
+    "cors": "^2.8.5"
+  }
+}

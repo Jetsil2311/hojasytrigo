@@ -268,6 +268,13 @@ Reason: Owner feedback: the first demo looked generic. Tips and notes should not
 
 ---
 
+### 2026-11-02 — Ready for Vercel
+What changed: `vercel.json` now names the framework (Vite), install (`npm ci`), build and output (`dist`); the single-page rewrite skips `/assets/` and `/brand/` so a missing file returns a real 404 instead of the app; hashed assets are cached for a year, the logo and brand marks for a day; basic security headers (nosniff, referrer policy, same-origin framing). Added a home-screen icon (`public/apple-touch-icon.png`), set `lang="es-MX"`, renamed the package to `hojas-y-trigo-menu` and declared Node 20 or newer. README has deploy steps. The repo lives at https://github.com/Jetsil2311/hojasytrigo with a fresh history authored only by Jetsil2311 (Vercel Hobby friendly).
+Files affected: vercel.json, index.html, public/apple-touch-icon.png (new), package.json, package-lock.json, README.md, digitalMenu.md
+Reason: First deployment on Vercel.
+
+---
+
 ## Known Issues / Follow-ups
 
 - **Real customer PII is still in git history.** `customers-2026-04-18.csv` (names, phone numbers, balances) was deleted from the working tree but remains in earlier commits on GitHub. If the repo will ever be public or shared, rewrite history (for example with `git filter-repo --path customers-2026-04-18.csv --invert-paths`) and force-push, or keep the repo private. The old Firebase web config (API key for `digital-menu-demo`) is also in history; web API keys are not secret by design, but the project's security rules are what protect that data.

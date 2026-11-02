@@ -15,6 +15,18 @@ npm run dev
 
 Open the menu and the admin in two tabs: an order sent from the menu shows up live in **Pedidos**.
 
+## Deploy on Vercel
+
+The repo is ready for Vercel (Hobby plan is enough):
+
+1. In Vercel, **Add New → Project**, import `Jetsil2311/hojasytrigo` and keep the defaults. `vercel.json` already sets the framework (Vite), `npm ci`, `npm run build` and the `dist` output.
+2. No environment variables are needed: the menu and the admin run entirely in the browser.
+3. Every push to `main` deploys to production; other branches get preview URLs.
+
+`vercel.json` also sends every app route (`/menu`, `/menu/bebidas`, `/admin/...`) to `index.html`, caches the hashed files in `/assets` for a year and adds basic security headers.
+
+Once the domain is known, add an `og:image` with an absolute URL in `index.html` so WhatsApp shows a preview image.
+
 ## How the demo data works
 
 - `src/demo/store.js` is a small in-browser store with the same API as the Firestore client (`collection`, `doc`, `onSnapshot`, `addDoc`, …). Data is saved in `localStorage`, so each visitor gets their own copy.
